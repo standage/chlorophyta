@@ -5,11 +5,18 @@ import glob
 
 
 iloc2prot = dict()
-for infile in glob.glob('species/*/*.protein2ilocus.txt'):
-    with open(infile, 'r') as instream:
-        for line in instream:
+mapfiles = list(glob.glob('species/*/*.protein2ilocus.txt'))
+repfiles = list(glob.glob('species/*/*.protids.txt'))
+for mapfile, repfile in zip(mapfiles, repfiles):
+    with open(mapfile, 'r') as mapstream, open(repfile, 'r') as repstream:
+        reps = dict()
+        for line in repstream:
+            protid = line.strip()
+            reps[protid] = True
+        for line in mapstream:
             protid, locusid = line.strip().split('\t')
-            iloc2prot[locusid] = protid
+            if protid in reps:
+                iloc2prot[locusid] = protid
 
 chlorophytes = ['Apro', 'Crei', 'Cvar', 'Csub', 'Mpus', 'Msrc', 'Oluc', 'Otau', 'Vcar']
 
@@ -39,7 +46,7 @@ class HiLocus(object):
         elif chlorophyte_count + nonchlorophyte_count > 1:
             return 'Matched'
         else:
-            return 'Orphan'
+            return 'Unmatched'
 
 
 def get_parser():
