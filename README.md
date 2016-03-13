@@ -68,7 +68,7 @@ do
 done
 
 # Re-classify "Unmatched" iLoci as "Matched" or "Orphan"
-python post_blast.py <(cat blastdbs/*.blast_matches.txt) blastdbs/Chlorophyta.hiLocus.pre-status.tsv \
+python post_blast.py <(cat blastdbs/*.blast_matches.txt) Chlorophyta.hiLocus.pre-status.tsv \
     > Chlorophyta.hiLocus.status.tsv
 ```
 
