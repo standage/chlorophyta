@@ -1,6 +1,7 @@
 env/
-species/
+species
 GenHub.*
 setup
 *.swp
 blastdbs/
+.ipynb_checkpoints/
