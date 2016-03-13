@@ -57,7 +57,7 @@ do
            -out blastdbs/${species}.unmatched.blastp
 
     # Extract protein IDs of newly matched proteins
-    MuSeqBox -i blastdbs/${species}.unmatched.blastp
+    MuSeqBox -i blastdbs/${species}.unmatched.blastp \
              -L 100 -d 16 -l 24 -c crtfile \
         > blastdbs/${species}.unmatched.msb
     grep -e '^XP' -e '^NP' blastdbs/${species}.unmatched.msb \
