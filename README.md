@@ -73,7 +73,7 @@ python post_blast.py <(cat blastdbs/*.blast_matches.txt) Chlorophyta.hiLocus.pre
 ```
 
 Finally, we use custom Python scripts to compute a breakdown of each species, for each species showing the number of iLoci assigned to each category, as well as the proportion of the genome occupied by iLoci of that category.
-See [notebook.ipynb](notebook.ipybn) for the code used to plot these breakdowns.
+See [notebook.ipynb](notebook.ipynb) for the code used to plot these breakdowns.
 
 ```bash
 python breakdown.py <(cat species/*/*.iloci.tsv) Chlorophyta.hiLocus.status.tsv \
