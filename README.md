@@ -82,3 +82,14 @@ python breakdown.py --counts <(cat species/*/*.iloci.tsv) \
                     Chlorophyta.hiLocus.status.tsv \
     > Chlorophyta-breakdown-counts.tsv
 ```
+
+## Analysis of function of highly conserved piLoci
+
+We examined the functional annotations of proteins encoded by highly conserved piLoci in *Chlamydomonas reinhardtii*.
+
+```bash
+for pid in $(grep HighlyConserved Chlorophyta.hiLocus.status.tsv | grep Crei | cut -f 5)
+do
+    grep $pid species/Crei/Crei.all.prot.fa
+done > deflines-HighlyConserved.txt
+```
